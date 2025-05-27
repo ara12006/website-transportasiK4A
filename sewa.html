@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pemesanan Transportasi</title>
+     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #f2994a, #f2c94c);
+      margin: 0;
+      padding: 0;
+      color: #4a2c00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff7e6;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(242, 153, 74, 0.25);
+      width: 100%;
+      max-width: 450px;
+      padding: 40px 30px;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      color: #070707;
+      font-weight: 700;
+      font-size: 28px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #805000;
+    }
+
+    select, input[type="text"], input[type="datetime-local"] {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 1.8px solid #f2c94c;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+      outline: none;
+      background: #fff3e0;
+      color: #4a2c00;
+    }
+
+    select:focus, input[type="text"]:focus, input[type="datetime-local"]:focus {
+      border-color: #f2994a;
+      box-shadow: 0 0 8px rgba(242, 153, 74, 0.6);
+      background: #fff7e6;
+    }
+
+    button {
+      background: #f2994a;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+      box-shadow: 0 5px 10px rgba(242, 153, 74, 0.5);
+    }
+
+    button:hover {
+      background: #d67a16;
+      box-shadow: 0 6px 12px rgba(214, 122, 22, 0.7);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #c48700;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+      
+  
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Form Pemesanan Transportasi</h1>
+    <form id="bookingForm">
+      <div>
+        <label for="transportType">Jenis Transportasi</label>
+        <select id="transportType" name="transportType" required>
+          <option value="" disabled selected>Pilih jenis transportasi</option>
+          <option value="mobil">Mobil</option>
+          <option value="motor">Motor</option>
+          <option value="bus">Pesawat</option>
+          <option value="taksi">Ferry</option>
+        </select>
+      </div>
+       <div>
+        <label for="pesan">Pilihan Pemesanan</label>
+        <select id="pesan" name="pesan" required>
+          <option value="" disabled selected>Pilih Pemesanan</option>
+          <option value="Beli">Beli</option>
+          <option value="Pesan Tiket">Pesan tiket</option>
+        </select>
+      </div>
+      <div>
+        <label for="order">Mobil/Motor (Pembelian)</label>
+        <input type="text" id="order" name="order" placeholder="Masukkan Merek Mobil/Motor" required />
+      </div>
+      <div>
+        <label for="destination">Tujuan (Pemesanan Tiket)</label>
+        <input type="text" id="destination" name="destination" placeholder="Masukkan tujuan" required />
+      </div>
+      <div>
+        <label for="datetime">Tanggal & Waktu</label>
+        <input type="datetime-local" id="datetime" name="datetime" required />
+      </div>
+      <div>
+        <label for="no">No Hp</label>
+        <input type="text" id="no" name="no" required />
+      </div>
+      <button type="submit">Pesan Sekarang</button>
+      <button type="submit"><a href="beranda.html">Kembali</a></button>
+    </form>
+    <div class="footer">© 2025 Layanan Pemesanan Transportasi Kelompok 4</div>
+  </div>
+  
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const transportType = this.transportType.value;
+      const pesan = this.pesan.value;
+      const order = this.order.value;
+      const destination = this.destination.value.trim();
+      const datetime = this.datetime.value;
+      const no = this.no.value.trim();
+      
+
+
+      if (!transportType || !pesan || !order || !destination || !datetime || !no) {
+        alert('Silakan isi semua kolom dengan lengkap.');
+        return;
+      }
+
+      alert(
+        `Terima kasih, pesanan Anda telah diterima:\n` +
+        `Jenis Transportasi: ${transportType}\n` +
+        `Pilihan Pemesanan: ${pesan}\n` +
+        `Merek : ${order}\n` +
+        `Tujuan: ${destination}\n` +
+        `Tanggal & Waktu: ${new Date(datetime).toLocaleString()}\n`+
+        `No Hp: ${no}`
+      );
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+

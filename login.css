@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poopins", sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('assets/images/download.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.wrapper{
+     width: 350px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color:transparent;
+  border: 1px solid #0d0c0c;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.wrapper h1{
+    text-align: center;
+}
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(7, 7, 7, 0.2);
+    border-radius:40px ;
+    font-size: 16px;
+    color: #ffffffcb;
+    padding:    20px 45px 20 20px;
+}
+.input-box input::placeholder{
+    color: #0e0e0e;
+}
+.input-box i{
+    position:absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.wrapper .Remmember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.Remmember-forgot  label input{
+    accent-color: #fff;
+    margin-right: 3px;
+}
+.Remmember-forgot a{
+    color: #0c0c0c;
+    text-decoration: none;
+}
+.Remmember-forgot a:hover{
+    text-decoration: underline;
+}
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: #ffffff;
+    border:none ;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+.wrapper .register-link{
+    font-size:14.5px ;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+.register-link p a{
+    color: #0b0b0b;
+    text-decoration: none;
+}
+.register-link p a:hover{
+    text-decoration: underline;
+}
